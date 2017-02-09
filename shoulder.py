@@ -36,11 +36,21 @@ def shoulderExtraction():
     cv2.imwrite('image/contours_img5.jpg', dst)
     cv2.imshow('contours_img5.jpg', dst)
 
-    #輪郭線から最初に出てきた値を取る
+    #高さの中央値を抽出
     imgShape = cv2.imread('image/contours_img5.jpg')
     height, width = imgShape.shape[:2]
-    heightCenter = height/2
-    print(int(heightCenter), width)
+    heightCenter = height//2
+    print(heightCenter, width)
+    print(imgShape[heightCenter][250])
+
+    #最初に出てきた[0,255,0]の座標を肩の位置として記憶
+    for i in range(width):
+        if imgShape([[heightCenter][i]]) == ([0, 255, 0]):
+            shoulderRight = imgShape[heightCenter][i]
+            break
+    
+    print(shoulderRight)
+
 
 if __name__ == "__main__":
 
