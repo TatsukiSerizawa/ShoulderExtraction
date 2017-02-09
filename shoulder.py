@@ -37,9 +37,10 @@ def shoulderExtraction():
     cv2.imshow('contours_img5.jpg', dst)
 
     #輪郭線から最初に出てきた値を取る
-    for shWidth in dst:
-#        shoulderWidth = shWidth[1]
-        print(dst[shWidth])
+    imgShape = cv2.imread('image/contours_img5.jpg')
+    height, width = imgShape.shape[:2]
+    heightCenter = height/2
+    print(int(heightCenter), width)
 
 if __name__ == "__main__":
 
